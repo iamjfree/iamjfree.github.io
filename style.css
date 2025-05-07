@@ -22,18 +22,19 @@ body {
   overflow: hidden;
 }
 
-/* Photo column: fixed width, full height */
+/* Photo column: fixed width, full height on desktop */
 .photo {
   flex: 0 0 250px;
   overflow: hidden;
 }
 
-/* Image: fill the entire column on desktop */
+/* Desktop image: cover entire column */
 .photo img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 /* Content area */
@@ -93,14 +94,14 @@ body {
   .photo {
     width: 100%;
     flex: none;
-    height: auto;                /* allow container to grow */
+    height: 200px;             /* fixed smaller height */
   }
   .photo img {
     display: block;
     width: 100%;
-    height: auto;                /* preserve full image */
-    object-fit: contain;         /* show entire image */
-    object-position: top center; /* keep the head at the top */
+    height: 100%;              /* fill the 200px container */
+    object-fit: cover;         /* crop bottom, keep top */
+    object-position: top center;
   }
   .card-content {
     flex-direction: column;
