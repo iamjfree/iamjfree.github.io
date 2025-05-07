@@ -13,7 +13,7 @@ body {
 /* 3. Card wrapper */
 .card {
   display: flex;
-  align-items: stretch;      /* force equal heights on desktop */
+  align-items: stretch;      /* equal heights on desktop */
   max-width: 700px;
   margin: 50px auto;
   background: #fff;
@@ -24,14 +24,14 @@ body {
 
 /* 4. Photo column (desktop) */
 .photo {
-  flex: 0 0 250px;           /* fixed 250px width */
+  flex: 0 0 250px;
   overflow: hidden;
 }
 .photo img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* cover crop on desktop */
+  object-fit: cover;
   object-position: top center;
 }
 
@@ -39,11 +39,11 @@ body {
 .card-content {
   flex: 1;
   display: flex;
-  align-items: flex-start;   /* top-align text */
+  align-items: flex-start;   /* top-align text on desktop */
   padding: 30px;
 }
 
-/* 6. Left‐hand info */
+/* 6. Left-hand info */
 .info-left {
   flex: 2;
 }
@@ -71,7 +71,7 @@ body {
   margin: 0 24px;
 }
 
-/* 8. Right‐hand info */
+/* 8. Right-hand info */
 .info-right {
   flex: 1;
 }
@@ -84,29 +84,36 @@ body {
   text-decoration: none;
 }
 
-/* 9. Mobile override: stack & constrain image height */
+/* 9. Mobile override: stack & center everything */
 @media (max-width: 600px) {
   .card {
-    flex-direction: column;   /* stack the photo on top */
+    flex-direction: column;     /* stack */
+    align-items: center;        /* center the photo & content */
   }
   .photo {
     width: 100%;
     flex: none;
-    height: 300px;            /* container height you can adjust */
+    height: 200px;              /* you can tweak this height */
     overflow: hidden;
   }
   .photo img {
     display: block;
-    width: auto;              /* auto width to keep aspect */
-    height: 100%;             /* fill the 200px container height */
-    object-fit: contain;      /* show the whole image */
-    object-position: center;  /* center it within the box */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
   .card-content {
     flex-direction: column;
+    align-items: center;        /* center the two info columns */
     padding: 20px;
+    text-align: center;         /* center all text */
   }
   .divider {
     display: none;
+  }
+  /* ensure contact items wrap nicely */
+  .info-right, .info-left {
+    width: 100%;
   }
 }
