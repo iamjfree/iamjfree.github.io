@@ -12,37 +12,36 @@ body {
 
 /* Card container */
 .card {
+  display: flex;
+  align-items: stretch;      /* ← make children the same height */
   max-width: 700px;
   margin: 50px auto;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  align-items: stretch;   /* stretch children to same height */
 }
 
-/* Photo column: 35% width, height flows with content */
+/* Photo column: adjust width as you like */
 .photo {
-  flex: 0 0 35%;
-  background: #eaeaea;
+  flex: 0 0 250px;           /* ← 250px wide fixed; change as desired */
   overflow: hidden;
 }
 
-/* Image: fill width, auto height */
+/* Image: fill entire column (width & height) */
 .photo img {
-  display: block;
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover;         /* ← crops to fill without distortion */
+  display: block;
 }
 
-/* Content area: top-aligned */
+/* Content area */
 .card-content {
   flex: 1;
+  padding: 30px;
   display: flex;
   align-items: flex-start;
-  padding: 30px;
 }
 
 /* Left info */
@@ -70,7 +69,6 @@ body {
 .divider {
   width: 2px;
   background: #C81D25;
-  align-self: stretch;
   margin: 0 24px;
 }
 
@@ -87,7 +85,7 @@ body {
   text-decoration: none;
 }
 
-/* Responsive */
+/* Mobile stack */
 @media (max-width: 600px) {
   .card {
     flex-direction: column;
@@ -95,6 +93,7 @@ body {
   .photo {
     width: 100%;
     flex: none;
+    height: 200px;           /* give it some reasonable height */
   }
   .card-content {
     flex-direction: column;
