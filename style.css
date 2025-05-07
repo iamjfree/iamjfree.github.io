@@ -22,20 +22,7 @@ body {
 }
 
 /* Photo placeholder */
-.photo {
-  flex: 0 0 200px;
-  background: #eaeaea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 200px;
-}
-.photo::before {
-  content: 'Photo';
-  color: #666;
-  font-size: 1rem;
-}
+
 .photo img {
   display: block;
   width: 100%;
