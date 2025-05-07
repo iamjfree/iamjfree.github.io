@@ -92,7 +92,7 @@ body {
   .photo {
     width: 100%;
     flex: none;
-    height: 200px;            /* container height you can adjust */
+    height: 300px;            /* container height you can adjust */
     overflow: hidden;
   }
   .photo img {
