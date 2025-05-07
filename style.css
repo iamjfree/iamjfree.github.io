@@ -1,7 +1,7 @@
-/* Import Google Fonts */
+/* 1. Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;500&display=swap');
 
-/* Base styles */
+/* 2. Reset & base typography */
 body {
   margin: 0;
   padding: 0;
@@ -10,10 +10,10 @@ body {
   color: #333;
 }
 
-/* Card container */
+/* 3. Card wrapper */
 .card {
   display: flex;
-  align-items: stretch;
+  align-items: stretch;      /* force equal heights on desktop */
   max-width: 700px;
   margin: 50px auto;
   background: #fff;
@@ -22,30 +22,28 @@ body {
   overflow: hidden;
 }
 
-/* Photo column: fixed width, full height on desktop */
+/* 4. Photo column (desktop) */
 .photo {
-  flex: 0 0 250px;
+  flex: 0 0 250px;           /* fixed 250px width */
   overflow: hidden;
 }
-
-/* Desktop image: cover entire column */
 .photo img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;         /* cover crop on desktop */
   object-position: top center;
 }
 
-/* Content area */
+/* 5. Content area */
 .card-content {
   flex: 1;
-  padding: 30px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start;   /* top-align text */
+  padding: 30px;
 }
 
-/* Left info */
+/* 6. Left‐hand info */
 .info-left {
   flex: 2;
 }
@@ -66,14 +64,14 @@ body {
   color: #777;
 }
 
-/* Divider */
+/* 7. Divider */
 .divider {
   width: 2px;
   background: #C81D25;
   margin: 0 24px;
 }
 
-/* Right info */
+/* 8. Right‐hand info */
 .info-right {
   flex: 1;
 }
@@ -86,22 +84,23 @@ body {
   text-decoration: none;
 }
 
-/* Mobile styles */
+/* 9. Mobile override: stack & constrain image height */
 @media (max-width: 600px) {
   .card {
-    flex-direction: column;
+    flex-direction: column;   /* stack the photo on top */
   }
   .photo {
     width: 100%;
     flex: none;
-    height: 250px;             /* increased mobile height */
+    height: 200px;            /* container height you can adjust */
+    overflow: hidden;
   }
   .photo img {
     display: block;
-    width: 100%;
-    height: 100%;              /* fill the 250px container */
-    object-fit: cover;         /* crop bottom, keep top */
-    object-position: top center;
+    width: auto;              /* auto width to keep aspect */
+    height: 100%;             /* fill the 200px container height */
+    object-fit: contain;      /* show the whole image */
+    object-position: center;  /* center it within the box */
   }
   .card-content {
     flex-direction: column;
